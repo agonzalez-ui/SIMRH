@@ -69,26 +69,27 @@ class ClienteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Cliente $cliente)
-    {
-        $datos = $request->validate([
-            'nombre' => 'required|string|max:255',
-            'cedula' => 'required|string|max:20|unique:clientes,cedula' . $cliente->id,
-            'telefono' => 'required|string|max:20',
-            'email' => 'nullable|email|max:255',
-            'direccion' => 'nullable|string',
-        ], [
-            'nombre.required' => 'El nombre es obligatorio',
-            'cedula.required' => 'La cedula es obligatoria',
-            'cedula.unique' => 'Ya existe un cliente con esa cedula',
-            'telefono.required' => 'El telefono es obligatorio',
-            'email.email' => 'El correo no tiene un formato valido'
-        ]);
+  public function update(Request $request, Cliente $cliente)
+{
+    $datos = $request->validate([
+        'nombre'    => 'required|string|max:255',
+        'cedula'    => 'required|string|max:20|unique:clientes,cedula,' . $cliente->id,
+        'telefono'  => 'required|string|max:20',
+        'email'     => 'nullable|email|max:255',
+        'direccion' => 'nullable|string',
+    ], [
+        'nombre.required'   => 'El nombre es obligatorio.',
+        'cedula.required'   => 'La cédula es obligatoria.',
+        'cedula.unique'     => 'Ya existe un cliente con esa cédula.',
+        'telefono.required' => 'El teléfono es obligatorio.',
+        'email.email'       => 'El correo no tiene un formato válido.',
+    ]);
 
-        cliente->update($datos);
+    $cliente->update($datos);
 
-        return redirect()->route('cliente.index')->with('success', 'Cliente actulizado correctamente.');
-    }
+    return redirect()->route('clientes.index')
+        ->with('success', 'Cliente actualizado correctamente.');
+}
 
     /**
      * Remove the specified resource from storage.
