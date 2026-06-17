@@ -17,8 +17,17 @@
                     </x-nav-link>
                     <!-- para llegar al moddulo cliente -->
                      <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.*')">
-    {{ __('Clientes') }}
-</x-nav-link>
+                        {{ __('Clientes') }}
+                    </x-nav-link>
+                    
+                    <x-nav-link :href="route('vehiculos.index')" :active="request()->routeIs('vehiculos.*')">
+                        {{ __('Vehículos') }}
+                    </x-nav-link>
+
+
+
+
+
 
                 </div>
             </div>
