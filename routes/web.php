@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\VehiculoController;
+use App\Http\Controllers\OrdenController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -12,6 +13,8 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::resource('clientes', ClienteController::class);
     Route::resource('vehiculos', VehiculoController::class);
+    Route::resource('ordenes', OrdenController::class)
+        ->parameters(['ordenes' => 'orden']);
 });
 
 
@@ -28,4 +31,4 @@ Route::middleware('auth')->group(function () {
 
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
