@@ -28,6 +28,10 @@
                         {{ __('Órdenes') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('repuestos.index')" :active="request()->routeIs('repuestos.*')">
+                        {{ __('Inventario') }}
+                    </x-nav-link>
+
 
 
 

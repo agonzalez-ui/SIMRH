@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RepuestoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\VehiculoController;
@@ -15,6 +16,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('vehiculos', VehiculoController::class);
     Route::resource('ordenes', OrdenController::class)
         ->parameters(['ordenes' => 'orden']);
+    Route::resource('repuestos', RepuestoController::class);
 });
 
 
