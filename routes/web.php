@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\OrdenController;
+use App\Http\Controllers\FacturaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,6 +18,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('ordenes', OrdenController::class)
         ->parameters(['ordenes' => 'orden']);
     Route::resource('repuestos', RepuestoController::class);
+    Route::resource('facturas', FacturaController::class)
+        ->except(['edit', 'update']);
 });
 
 

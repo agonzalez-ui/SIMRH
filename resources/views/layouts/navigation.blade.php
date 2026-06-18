@@ -32,6 +32,10 @@
                         {{ __('Inventario') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('facturas.index')" :active="request()->routeIs('facturas.*')">
+                        {{ __('Facturas') }}
+                    </x-nav-link>
+
 
 
 
